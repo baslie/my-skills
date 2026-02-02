@@ -1,5 +1,5 @@
 ---
-name: wireframe-builder
+name: building-wireframes
 description: Generates lo-fi wireframes as single HTML files with Tailwind CSS. Use when user asks to create wireframe, sketch UI, prototype page, design mockup, or visualize layout for landing pages, dashboards, forms, admin panels, mobile screens.
 argument-hint: "[page description or PRD document]"
 allowed-tools: Read, Write
@@ -40,6 +40,8 @@ Start with `assets/template.html` — it provides:
 - Alpine.js for interactivity when needed
 - Base styles and responsive meta tags
 
+**Note:** Keep only the `<head>` section and start with an empty `<body>`. The demo content in template.html is just an example of the wire-* palette in action.
+
 ### Design Tokens
 
 See [components.md](references/components.md) for the full `wire-*` color palette.
@@ -78,6 +80,7 @@ See [components.md](references/components.md) for the full `wire-*` color palett
 
 | Category | File | Contains |
 |----------|------|----------|
+| Tokens | [components.md](references/components.md) | Design tokens, color palette, overview |
 | Layout | [navigation.md](references/navigation.md) | Header, sidebar, footer, breadcrumbs |
 | Content | [content.md](references/content.md) | Hero, cards, testimonials, pricing |
 | Forms | [forms.md](references/forms.md) | Inputs, buttons, complete forms |
@@ -129,3 +132,7 @@ Suggest a name before saving:
 - Testimonial card
 - CTA section
 - Simple footer
+
+## Your Task
+
+$ARGUMENTS

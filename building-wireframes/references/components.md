@@ -21,6 +21,12 @@ Lo-fi components with `wire-*` color palette. Use as starting points, not requir
 | `wire-text` | `text-wire-text` | Body text |
 | `wire-dark` | `bg-wire-dark`, `text-wire-dark` | Headings, primary buttons |
 
+### Border Radius
+
+| Token | Class | Value |
+|-------|-------|-------|
+| `wire` | `rounded-wire` | 0.375rem (6px) |
+
 ---
 
 ## Component Categories

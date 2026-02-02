@@ -2,6 +2,12 @@
 
 Ready-to-use table components with `wire-*` color palette.
 
+## Contents
+
+- [Simple Table](#simple-table)
+- [Data Table with Actions](#data-table-with-actions)
+- [Table with Pagination](#table-with-pagination)
+
 ---
 
 ## Simple Table

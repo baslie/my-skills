@@ -2,6 +2,29 @@
 
 Loading, empty, and progress states with `wire-*` color palette.
 
+## Contents
+
+- [Spinners](#spinners)
+  - [Simple Spinner](#simple-spinner)
+  - [Spinner with Text](#spinner-with-text)
+  - [Large Centered Spinner](#large-centered-spinner)
+- [Skeleton Loaders](#skeleton-loaders)
+  - [Text Skeleton](#text-skeleton)
+  - [Card Skeleton](#card-skeleton)
+  - [Avatar + Text Skeleton](#avatar--text-skeleton)
+  - [Table Skeleton](#table-skeleton)
+- [Empty State](#empty-state)
+- [Progress Bars](#progress-bars)
+  - [Simple Progress Bar](#simple-progress-bar)
+  - [Progress Bar with Label](#progress-bar-with-label)
+  - [Steps Progress](#steps-progress)
+  - [Circular Progress (CSS)](#circular-progress-css)
+- [Badges / Tags](#badges--tags)
+  - [Default Badge](#default-badge)
+  - [Status Badges](#status-badges)
+- [Pagination](#pagination)
+- [Utility Icons](#utility-icons)
+
 ---
 
 ## Spinners

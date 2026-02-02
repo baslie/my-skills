@@ -2,6 +2,15 @@
 
 Ready-to-use navigation components with `wire-*` color palette.
 
+## Contents
+
+- [Header with Logo + Nav + CTA](#header-with-logo--nav--cta)
+- [Sidebar Navigation](#sidebar-navigation)
+- [Breadcrumbs](#breadcrumbs)
+- [Hamburger Menu (Mobile Navigation)](#hamburger-menu-mobile-navigation)
+- [Simple Footer](#simple-footer)
+- [Multi-column Footer](#multi-column-footer)
+
 ---
 
 ## Header with Logo + Nav + CTA
@@ -154,7 +163,7 @@ Ready-to-use navigation components with `wire-*` color palette.
       <div class="w-6 h-6 bg-wire-dark rounded"></div>
       <span class="font-semibold text-wire-dark">Brand</span>
     </div>
-    <p class="text-sm text-wire-muted">&copy; 2024 Brand. All rights reserved.</p>
+    <p class="text-sm text-wire-muted">&copy; <span x-data x-text="new Date().getFullYear()"></span> Brand. All rights reserved.</p>
   </div>
 </footer>
 ```
@@ -197,7 +206,7 @@ Ready-to-use navigation components with `wire-*` color palette.
       </div>
     </div>
     <div class="pt-8 border-t border-wire-border text-center text-sm text-wire-muted">
-      &copy; 2024 Brand. All rights reserved.
+      &copy; <span x-data x-text="new Date().getFullYear()"></span> Brand. All rights reserved.
     </div>
   </div>
 </footer>

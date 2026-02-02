@@ -101,30 +101,15 @@ Alpine.js-powered interactive components with `wire-*` color palette.
 ## Toast / Notification
 
 ```html
-<div x-data="{ show: false, message: '', type: 'info' }"
-     @show-toast.window="show = true; message = $event.detail.message; type = $event.detail.type || 'info'; setTimeout(() => show = false, 3000)">
+<div x-data="{ show: false, message: '' }"
+     @show-toast.window="show = true; message = $event.detail.message; setTimeout(() => show = false, 3000)">
 
   <!-- Toast container -->
   <div x-show="show" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-2" class="fixed bottom-4 right-4 z-50">
     <div class="bg-wire-dark text-white px-4 py-3 rounded-wire shadow-lg flex items-center gap-3">
-      <!-- Success icon -->
-      <template x-if="type === 'success'">
-        <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-        </svg>
-      </template>
-      <!-- Error icon -->
-      <template x-if="type === 'error'">
-        <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </template>
-      <!-- Info icon -->
-      <template x-if="type === 'info'">
-        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-        </svg>
-      </template>
+      <svg class="w-5 h-5 text-wire-surface" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
       <span x-text="message">Notification message</span>
       <button @click="show = false" class="ml-2 text-wire-border hover:text-white transition-colors">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -136,7 +121,7 @@ Alpine.js-powered interactive components with `wire-*` color palette.
 </div>
 
 <!-- Trigger example (place anywhere) -->
-<button @click="$dispatch('show-toast', { message: 'Action completed!', type: 'success' })" class="px-4 py-2 bg-wire-dark text-white rounded-wire">
+<button @click="$dispatch('show-toast', { message: 'Action completed!' })" class="px-4 py-2 bg-wire-dark text-white rounded-wire">
   Show Toast
 </button>
 ```

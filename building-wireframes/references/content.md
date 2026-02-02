@@ -2,6 +2,26 @@
 
 Ready-to-use content blocks with `wire-*` color palette.
 
+## Contents
+
+- [Hero Sections](#hero-sections)
+  - [Hero with Image Right](#hero-with-image-right)
+  - [Hero Centered Minimal](#hero-centered-minimal)
+  - [Hero with Signup Form](#hero-with-signup-form)
+- [Cards](#cards)
+  - [Basic Card](#basic-card)
+  - [Card Grid (3 columns)](#card-grid-3-columns)
+- [Placeholders](#placeholders)
+  - [Image Placeholder](#image-placeholder)
+  - [Avatar Placeholder](#avatar-placeholder)
+- [Testimonial](#testimonial)
+- [Pricing Card](#pricing-card)
+- [FAQ Accordion (Pure CSS)](#faq-accordion-pure-css)
+- [Layout Patterns](#layout-patterns)
+  - [Container with Max Width](#container-with-max-width)
+  - [Section with Background](#section-with-background)
+  - [Dashboard Layout (Sidebar + Main)](#dashboard-layout-sidebar--main)
+
 ---
 
 ## Hero Sections
