@@ -13,13 +13,13 @@ Custom skills collection for [Claude Code CLI](https://docs.anthropic.com/en/doc
 ### Global (all projects)
 
 ```bash
-claude skill install --global https://github.com/rytrycon/my-skills/wireframe-builder
+claude skill install --global https://github.com/baslie/my-skills/wireframe-builder
 ```
 
 ### Local (current project)
 
 ```bash
-claude skill install https://github.com/rytrycon/my-skills/wireframe-builder
+claude skill install https://github.com/baslie/my-skills/wireframe-builder
 ```
 
 ## Usage
