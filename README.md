@@ -12,18 +12,34 @@ Custom skills collection for [Claude Code CLI](https://docs.anthropic.com/en/doc
 
 ### Global (all projects)
 
+**macOS / Linux:**
 ```bash
 git clone https://github.com/baslie/my-skills.git /tmp/my-skills
 cp -r /tmp/my-skills/building-wireframes ~/.claude/skills/
 rm -rf /tmp/my-skills
 ```
 
+**Windows (PowerShell):**
+```powershell
+git clone https://github.com/baslie/my-skills.git $env:TEMP\my-skills
+Copy-Item -Recurse $env:TEMP\my-skills\building-wireframes $HOME\.claude\skills\
+Remove-Item -Recurse -Force $env:TEMP\my-skills
+```
+
 ### Local (current project)
 
+**macOS / Linux:**
 ```bash
 git clone https://github.com/baslie/my-skills.git /tmp/my-skills
 cp -r /tmp/my-skills/building-wireframes .claude/skills/
 rm -rf /tmp/my-skills
+```
+
+**Windows (PowerShell):**
+```powershell
+git clone https://github.com/baslie/my-skills.git $env:TEMP\my-skills
+Copy-Item -Recurse $env:TEMP\my-skills\building-wireframes .claude\skills\
+Remove-Item -Recurse -Force $env:TEMP\my-skills
 ```
 
 ## Usage
