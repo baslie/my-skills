@@ -1,11 +1,13 @@
 ---
 name: wireframe-builder
 description: |
-  Generate lo-fi wireframes as single HTML files with Tailwind CSS.
-  Use when user asks to: create wireframe, sketch page layout, prototype UI,
+  Generates lo-fi wireframes as single HTML files with Tailwind CSS and Alpine.js.
+  Triggers when user asks to: create wireframe, sketch page layout, prototype UI,
   design page structure, visualize interface concept, build mockup, or plan
   website/app layout. Supports: landing pages, dashboards, forms, e-commerce,
   admin panels, mobile screens, etc.
+argument-hint: "[page description or PRD document]"
+allowed-tools: Bash(python:*), Read, Write
 ---
 
 # Wireframe Builder
@@ -17,10 +19,12 @@ Generate lo-fi wireframes as single HTML files using Tailwind CSS with a graysca
 1. Analyze user's prompt or document to understand requirements
 2. Determine sections, components, and layout from context
 3. Copy template from `assets/template.html`
-4. Pick components from `references/components.md`
+4. Pick components from `references/` files
 5. Suggest filename and ask for confirmation
 6. Create `wireframes/` folder if needed
 7. Save to `wireframes/[confirmed-name].html`
+8. Validate: `python scripts/validate-wireframe.py wireframes/[name].html`
+9. Open in browser: `python scripts/open-wireframe.py wireframes/[name].html`
 
 ## Context Analysis
 
@@ -64,52 +68,14 @@ When user provides a document (PRD, spec, user story, notes, any text):
    - Media references → image placeholders
 4. **Build wireframe** matching the document's intent
 
-## HTML Template Structure
+## HTML Template
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wireframe - [Page Name]</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            wire: {
-              bg: 'hsl(0 0% 100%)',
-              surface: 'hsl(0 0% 96%)',
-              border: 'hsl(0 0% 88%)',
-              muted: 'hsl(0 0% 62%)',
-              text: 'hsl(0 0% 26%)',
-              dark: 'hsl(0 0% 13%)',
-            }
-          },
-          borderRadius: {
-            wire: '0.375rem',
-          }
-        }
-      }
-    }
-  </script>
-  <style type="text/tailwindcss">
-    @layer base {
-      body {
-        @apply bg-wire-bg text-wire-text;
-        font-family: system-ui, -apple-system, sans-serif;
-      }
-    }
-  </style>
-</head>
-<body class="min-h-screen">
-  <!-- ========== SECTION NAME ========== -->
-  <!-- Content here -->
-</body>
-</html>
-```
+Copy the template from `assets/template.html` as your starting point.
+
+The template includes:
+- Tailwind CSS with `wire-*` color tokens
+- Alpine.js for interactive components
+- Base styles and responsive meta tags
 
 ## Design Tokens
 
@@ -122,79 +88,38 @@ When user provides a document (PRD, spec, user story, notes, any text):
 | `wire-text` | `text-wire-text` | #424242 | Body text |
 | `wire-dark` | `bg-wire-dark` | #212121 | Headings, primary buttons |
 
-## Core Components
+## Component Reference
 
-### Image Placeholder
-```html
-<div class="bg-wire-surface border border-wire-border border-dashed rounded-wire aspect-video flex items-center justify-center">
-  <svg class="w-12 h-12 text-wire-muted" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-  </svg>
-</div>
-```
+See `references/components.md` for the full index, or jump to specific categories:
 
-### Primary Button
-```html
-<button class="px-4 py-2 bg-wire-dark text-white rounded-wire hover:bg-wire-text transition-colors">
-  Button
-</button>
-```
-
-### Secondary Button
-```html
-<button class="px-4 py-2 border border-wire-border text-wire-text rounded-wire hover:bg-wire-surface transition-colors">
-  Secondary
-</button>
-```
-
-### Card
-```html
-<div class="bg-wire-surface border border-wire-border rounded-wire p-4 space-y-3">
-  <!-- content -->
-</div>
-```
-
-### Input
-```html
-<input type="text" placeholder="Placeholder..."
-  class="w-full px-3 py-2 border border-wire-border rounded-wire bg-wire-bg text-wire-text placeholder:text-wire-muted focus:outline-none focus:border-wire-muted">
-```
+- **[Navigation](references/navigation.md)**: Header, sidebar, breadcrumbs, hamburger menu, footer
+- **[Content](references/content.md)**: Hero sections, cards, testimonials, pricing, FAQ, layouts
+- **[Forms](references/forms.md)**: Inputs, buttons, login, search, contact forms
+- **[Tables](references/tables.md)**: Simple table, data tables with actions, pagination
+- **[Interactive](references/interactive.md)**: Modal, dropdown, tabs, toast (Alpine.js)
+- **[Mobile](references/mobile.md)**: Bottom nav, mobile cards, swipeable carousel
+- **[States](references/states.md)**: Spinner, skeleton, empty state, progress, badges, icons
 
 ## Interactivity
 
-Use CSS-only where possible:
+### CSS-only (preferred)
 - Hover: `hover:bg-wire-surface`, `hover:border-wire-muted`
 - Focus: `focus:border-wire-muted focus:outline-none`
 - Transitions: `transition-colors`
 - Accordion: `<details>` / `<summary>` elements
 
-## Layout Patterns
+### Alpine.js (when needed)
+- Modals and dialogs (open/close state)
+- Dropdown menus (click outside to close)
+- Tabs (switching active tab)
+- Mobile hamburger menu (toggle visibility)
+- Toast notifications (auto-dismiss)
 
-### Container
+Basic pattern:
 ```html
-<div class="max-w-6xl mx-auto px-4">
-  <!-- content -->
-</div>
-```
-
-### Section with Background
-```html
-<section class="py-16 bg-wire-surface">
-  <div class="max-w-6xl mx-auto px-4">
-    <!-- content -->
-  </div>
-</section>
-```
-
-### Dashboard (Sidebar + Main)
-```html
-<div class="flex min-h-screen">
-  <aside class="w-64 border-r border-wire-border bg-wire-bg p-4">
-    <!-- sidebar -->
-  </aside>
-  <main class="flex-1 p-6 bg-wire-surface">
-    <!-- content -->
-  </main>
+<div x-data="{ open: false }">
+  <button @click="open = !open">Toggle</button>
+  <div x-show="open" x-transition>Content</div>
 </div>
 ```
 
@@ -208,35 +133,27 @@ Use CSS-only where possible:
 
 ## Generation Checklist
 
-- [ ] Use `wire-*` palette only (grayscale)
-- [ ] Add HTML comments for sections: `<!-- ===== HEADER ===== -->`
-- [ ] Include hover states on interactive elements
-- [ ] Make layout responsive with `md:` breakpoints
-- [ ] Use semantic HTML (`<header>`, `<main>`, `<section>`, `<footer>`)
-- [ ] Test: open in browser, resize to 375px width
+```
+- [ ] Analyzed user input
+- [ ] Determined sections and components
+- [ ] Created responsive layout
+- [ ] Added hover states
+- [ ] Used wire-* palette only
+- [ ] Added HTML section comments (<!-- ===== SECTION ===== -->)
+- [ ] Tested at 375px width
+```
 
-## Component Reference
+## Examples
 
-See `references/components.md` for full component library:
-- Navigation (header, sidebar, breadcrumbs)
-- Hero sections (with image, centered, with form)
-- Content (cards, testimonials, pricing, FAQ)
-- Forms (login, signup, contact, search)
-- Footer (simple, multi-column)
-- Tables
-- Utility icons (SVG)
+See `examples/` directory for ready-to-use wireframe templates:
+- `landing-page.html` — Basic marketing page (header, hero, features, CTA, footer)
+- `dashboard.html` — Admin panel with sidebar navigation
+- `login-form.html` — Authentication page
 
 ## File Naming & Storage
 
 ### Output Directory
-All wireframes save to `wireframes/` in project root:
-```
-project/
-└── wireframes/
-    ├── user-profile.html
-    ├── checkout-flow.html
-    └── admin-users.html
-```
+All wireframes save to `wireframes/` in project root.
 
 ### Naming Convention
 Generate kebab-case names from content (2-4 words):
@@ -248,4 +165,15 @@ Generate kebab-case names from content (2-4 words):
 Always confirm before saving:
 > "I'll save this as `wireframes/user-profile.html`. Is this name okay?"
 
-Use user's preferred name if they suggest one.
+## Verification
+
+After generating a wireframe:
+
+1. **Validate**: `python scripts/validate-wireframe.py wireframes/[name].html`
+2. **Open**: `python scripts/open-wireframe.py wireframes/[name].html`
+3. **Check**:
+   - All requested sections present
+   - Responsive at 375px width
+   - Hover states work
+   - Only `wire-*` colors used
+   - Semantic HTML used
