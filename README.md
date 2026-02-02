@@ -6,20 +6,20 @@ Custom skills collection for [Claude Code CLI](https://docs.anthropic.com/en/doc
 
 | Skill | Description |
 |-------|-------------|
-| [wireframe-builder](./wireframe-builder) | Generate lo-fi wireframes as single HTML files with Tailwind CSS. Creates grayscale mockups for landing pages, dashboards, forms, e-commerce, admin panels, and more. |
+| [building-wireframes](./building-wireframes) | Generate lo-fi wireframes as single HTML files with Tailwind CSS. Creates grayscale mockups for landing pages, dashboards, forms, e-commerce, admin panels, and more. |
 
 ## Installation
 
 ### Global (all projects)
 
 ```bash
-claude skill install --global https://github.com/baslie/my-skills/wireframe-builder
+claude skill install --global https://github.com/baslie/my-skills/building-wireframes
 ```
 
 ### Local (current project)
 
 ```bash
-claude skill install https://github.com/baslie/my-skills/wireframe-builder
+claude skill install https://github.com/baslie/my-skills/building-wireframes
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ claude skill install https://github.com/baslie/my-skills/wireframe-builder
 After installation, invoke the skill in Claude Code:
 
 ```
-/wireframe-builder
+/building-wireframes
 ```
 
 Or describe what you need:
