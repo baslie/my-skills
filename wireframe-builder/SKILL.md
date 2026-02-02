@@ -7,77 +7,45 @@ description: |
   website/app layout. Supports: landing pages, dashboards, forms, e-commerce,
   admin panels, mobile screens, etc.
 argument-hint: "[page description or PRD document]"
-allowed-tools: Bash(python:*), Read, Write
+allowed-tools: Read, Write
 ---
 
 # Wireframe Builder
 
 Generate lo-fi wireframes as single HTML files using Tailwind CSS with a grayscale `wire-*` palette.
 
-## Quick Start
+## Philosophy: You Are an Artist
 
-1. Analyze user's prompt or document to understand requirements
-2. Determine sections, components, and layout from context
-3. Copy template from `assets/template.html`
-4. Pick components from `references/` files
-5. Suggest filename and ask for confirmation
-6. Create `wireframes/` folder if needed
-7. Save to `wireframes/[confirmed-name].html`
-8. Validate: `python scripts/validate-wireframe.py wireframes/[name].html`
-9. Open in browser: `python scripts/open-wireframe.py wireframes/[name].html`
+You are not an assembler copying pre-made blocks. You are a designer creating unique visual compositions.
 
-## Context Analysis
+Each wireframe is a blank canvas. The user's request is your inspiration, not a specification to match mechanically. Your goal is to craft something that *feels right* for the specific problem — not to follow a template.
 
-### Input Sources
-The skill works with any input that describes what to build:
-- **Direct prompt**: "Create a user profile page with settings"
-- **Text document**: PRD, user story, feature spec, design brief, notes
-- **Reference**: Description of existing page or competitor
+**Core beliefs:**
+- There is no "correct" page structure — only what serves the user's intent
+- Every wireframe should be unique, even for similar requests
+- Whitespace is a powerful design tool, not empty space to fill
+- Asymmetry can be more interesting than perfect grids
+- Unconventional layouts are welcome when they serve clarity
+- Less is often more — restraint creates focus
 
-### Automatic Understanding
-Analyze the input to identify:
-- Page purpose and main functionality
-- Required sections and their hierarchy
-- Key UI elements (forms, tables, lists, cards)
-- User actions and flows
-- Implicit mobile requirements
+## Creative Process
 
-### Minimal Questions
-Only ask when context is genuinely ambiguous:
-- "Should I include [specific element] mentioned in the doc?"
-- "The document describes two flows. Which is primary?"
+1. **Understand the essence** — What is the user really trying to communicate?
+2. **Visualize freely** — Imagine the page as a composition, not a list of components
+3. **Experiment with layout** — Try unusual arrangements, unexpected proportions
+4. **Apply the wire-* palette** — Work within the grayscale constraint
+5. **Create something unique** — The result should feel crafted, not assembled
 
-**Never ask about predefined categories** (SaaS, corporate, landing, etc.)
-The wireframe structure emerges from the actual requirements.
+## Technical Foundation
 
-## Document Processing
+### HTML Template
 
-When user provides a document (PRD, spec, user story, notes, any text):
-
-1. **Read the document** completely
-2. **Extract requirements**:
-   - Main purpose of the page
-   - User actions and flows
-   - Data to display (lists, tables, forms)
-   - Navigation needs
-   - Mentioned UI elements
-3. **Map to components**:
-   - Forms mentioned → form components
-   - Lists/data → tables, cards, grids
-   - Actions → buttons, CTAs
-   - Media references → image placeholders
-4. **Build wireframe** matching the document's intent
-
-## HTML Template
-
-Copy the template from `assets/template.html` as your starting point.
-
-The template includes:
+Start with `assets/template.html` — it provides:
 - Tailwind CSS with `wire-*` color tokens
-- Alpine.js for interactive components
+- Alpine.js for interactivity when needed
 - Base styles and responsive meta tags
 
-## Design Tokens
+### Design Tokens
 
 | Token | Class | Hex | Purpose |
 |-------|-------|-----|---------|
@@ -88,34 +56,17 @@ The template includes:
 | `wire-text` | `text-wire-text` | #424242 | Body text |
 | `wire-dark` | `bg-wire-dark` | #212121 | Headings, primary buttons |
 
-## Component Reference
+### Interactivity
 
-See `references/components.md` for the full index, or jump to specific categories:
-
-- **[Navigation](references/navigation.md)**: Header, sidebar, breadcrumbs, hamburger menu, footer
-- **[Content](references/content.md)**: Hero sections, cards, testimonials, pricing, FAQ, layouts
-- **[Forms](references/forms.md)**: Inputs, buttons, login, search, contact forms
-- **[Tables](references/tables.md)**: Simple table, data tables with actions, pagination
-- **[Interactive](references/interactive.md)**: Modal, dropdown, tabs, toast (Alpine.js)
-- **[Mobile](references/mobile.md)**: Bottom nav, mobile cards, swipeable carousel
-- **[States](references/states.md)**: Spinner, skeleton, empty state, progress, badges, icons
-
-## Interactivity
-
-### CSS-only (preferred)
+**CSS-only (preferred):**
 - Hover: `hover:bg-wire-surface`, `hover:border-wire-muted`
 - Focus: `focus:border-wire-muted focus:outline-none`
 - Transitions: `transition-colors`
 - Accordion: `<details>` / `<summary>` elements
 
-### Alpine.js (when needed)
-- Modals and dialogs (open/close state)
-- Dropdown menus (click outside to close)
-- Tabs (switching active tab)
-- Mobile hamburger menu (toggle visibility)
-- Toast notifications (auto-dismiss)
-
-Basic pattern:
+**Alpine.js (when needed):**
+- Modals, dropdowns, tabs, mobile menus
+- Basic pattern:
 ```html
 <div x-data="{ open: false }">
   <button @click="open = !open">Toggle</button>
@@ -123,7 +74,7 @@ Basic pattern:
 </div>
 ```
 
-## Responsive Design
+### Responsive Design
 
 - Mobile-first: start with single column
 - Use `md:` breakpoint for tablet/desktop
@@ -131,24 +82,51 @@ Basic pattern:
 - Hide on mobile: `hidden md:flex`
 - Show on mobile: `md:hidden`
 
-## Generation Checklist
+## Creative Freedom
 
-```
-- [ ] Analyzed user input
-- [ ] Determined sections and components
-- [ ] Created responsive layout
-- [ ] Added hover states
-- [ ] Used wire-* palette only
-- [ ] Added HTML section comments (<!-- ===== SECTION ===== -->)
-- [ ] Tested at 375px width
-```
+**Encouraged:**
+- Unusual grid proportions (70/30, 40/60, single wide column)
+- Generous whitespace and breathing room
+- Asymmetric layouts when they create visual interest
+- Breaking conventional section order
+- Minimalist approaches — only what's essential
+- Creative use of borders, spacing, and visual rhythm
+- Typography hierarchy as the primary visual tool
 
-## Examples
+**Remember:**
+- References in `references/` are optional inspiration, not required components
+- You can invent new patterns that don't exist in the references
+- Modify any pattern freely — they're starting points, not constraints
+- The best wireframe is one that solves the specific problem elegantly
 
-See `examples/` directory for ready-to-use wireframe templates:
-- `landing-page.html` — Basic marketing page (header, hero, features, CTA, footer)
-- `dashboard.html` — Admin panel with sidebar navigation
-- `login-form.html` — Authentication page
+## Reference Materials
+
+The `references/` folder contains primitives and patterns for *optional* inspiration:
+
+- **[Navigation](references/navigation.md)**: Header, sidebar, breadcrumbs, footer patterns
+- **[Content](references/content.md)**: Hero sections, cards, testimonials, pricing
+- **[Forms](references/forms.md)**: Inputs, buttons, form layouts
+- **[Tables](references/tables.md)**: Data display patterns
+- **[Interactive](references/interactive.md)**: Modal, dropdown, tabs (Alpine.js)
+- **[Mobile](references/mobile.md)**: Bottom nav, mobile cards, touch patterns
+- **[States](references/states.md)**: Loading, empty, progress indicators
+
+Use these as a reference when helpful, or create your own solutions entirely.
+
+## Context Analysis
+
+### Understanding the Request
+- Read user's prompt or document completely
+- Extract the *intent*, not just the literal requirements
+- Identify the emotional tone: professional, playful, minimal, rich?
+- Consider the target audience
+
+### Minimal Questions
+Only ask when genuinely ambiguous:
+- "Should I include [element] mentioned in the doc?"
+- "The document describes two flows. Which is primary?"
+
+Never ask about categories, styles, or structural choices — make creative decisions.
 
 ## File Naming & Storage
 
@@ -162,18 +140,5 @@ Generate kebab-case names from content (2-4 words):
 - Admin user list → `admin-users.html`
 
 ### Confirmation Flow
-Always confirm before saving:
+Suggest a name before saving:
 > "I'll save this as `wireframes/user-profile.html`. Is this name okay?"
-
-## Verification
-
-After generating a wireframe:
-
-1. **Validate**: `python scripts/validate-wireframe.py wireframes/[name].html`
-2. **Open**: `python scripts/open-wireframe.py wireframes/[name].html`
-3. **Check**:
-   - All requested sections present
-   - Responsive at 375px width
-   - Hover states work
-   - Only `wire-*` colors used
-   - Semantic HTML used

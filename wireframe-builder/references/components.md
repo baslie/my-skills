@@ -1,6 +1,12 @@
 # Wireframe Component Library
 
-Ready-to-use lo-fi components with `wire-*` color palette. Components are organized by category.
+> **Creative Note:** This is a reference library, not a rulebook. These components are *primitives* and *patterns* — use them as inspiration, modify them freely, or invent something entirely new. The best wireframe is one that serves your specific design intent, not one that assembles pre-made blocks.
+>
+> Feel free to: combine patterns unexpectedly, modify proportions, ignore conventions, or create components that don't exist here.
+
+---
+
+Lo-fi components with `wire-*` color palette. Use as starting points, not requirements.
 
 ---
 
