@@ -1,11 +1,6 @@
 ---
 name: wireframe-builder
-description: |
-  Generates lo-fi wireframes as single HTML files with Tailwind CSS and Alpine.js.
-  Triggers when user asks to: create wireframe, sketch page layout, prototype UI,
-  design page structure, visualize interface concept, build mockup, or plan
-  website/app layout. Supports: landing pages, dashboards, forms, e-commerce,
-  admin panels, mobile screens, etc.
+description: Generates lo-fi wireframes as single HTML files with Tailwind CSS. Use when user asks to create wireframe, sketch UI, prototype page, design mockup, or visualize layout for landing pages, dashboards, forms, admin panels, mobile screens.
 argument-hint: "[page description or PRD document]"
 allowed-tools: Read, Write
 ---
@@ -47,32 +42,12 @@ Start with `assets/template.html` — it provides:
 
 ### Design Tokens
 
-| Token | Class | Hex | Purpose |
-|-------|-------|-----|---------|
-| `wire-bg` | `bg-wire-bg` | #ffffff | Page background |
-| `wire-surface` | `bg-wire-surface` | #f5f5f5 | Card/section bg |
-| `wire-border` | `border-wire-border` | #e0e0e0 | Borders |
-| `wire-muted` | `text-wire-muted` | #9e9e9e | Placeholder, icons |
-| `wire-text` | `text-wire-text` | #424242 | Body text |
-| `wire-dark` | `bg-wire-dark` | #212121 | Headings, primary buttons |
+See [components.md](references/components.md) for the full `wire-*` color palette.
 
 ### Interactivity
 
-**CSS-only (preferred):**
-- Hover: `hover:bg-wire-surface`, `hover:border-wire-muted`
-- Focus: `focus:border-wire-muted focus:outline-none`
-- Transitions: `transition-colors`
-- Accordion: `<details>` / `<summary>` elements
-
-**Alpine.js (when needed):**
-- Modals, dropdowns, tabs, mobile menus
-- Basic pattern:
-```html
-<div x-data="{ open: false }">
-  <button @click="open = !open">Toggle</button>
-  <div x-show="open" x-transition>Content</div>
-</div>
-```
+- **CSS-only (preferred)**: hover, focus, transitions, `<details>` accordion
+- **Alpine.js**: modals, dropdowns, tabs → See [interactive.md](references/interactive.md)
 
 ### Responsive Design
 
@@ -99,19 +74,19 @@ Start with `assets/template.html` — it provides:
 - Modify any pattern freely — they're starting points, not constraints
 - The best wireframe is one that solves the specific problem elegantly
 
-## Reference Materials
+## Reference Library
 
-The `references/` folder contains primitives and patterns for *optional* inspiration:
+| Category | File | Contains |
+|----------|------|----------|
+| Layout | [navigation.md](references/navigation.md) | Header, sidebar, footer, breadcrumbs |
+| Content | [content.md](references/content.md) | Hero, cards, testimonials, pricing |
+| Forms | [forms.md](references/forms.md) | Inputs, buttons, complete forms |
+| Data | [tables.md](references/tables.md) | Tables, pagination |
+| Interactive | [interactive.md](references/interactive.md) | Modal, dropdown, tabs (Alpine.js) |
+| Mobile | [mobile.md](references/mobile.md) | Bottom nav, mobile cards |
+| States | [states.md](references/states.md) | Loading, empty, progress |
 
-- **[Navigation](references/navigation.md)**: Header, sidebar, breadcrumbs, footer patterns
-- **[Content](references/content.md)**: Hero sections, cards, testimonials, pricing
-- **[Forms](references/forms.md)**: Inputs, buttons, form layouts
-- **[Tables](references/tables.md)**: Data display patterns
-- **[Interactive](references/interactive.md)**: Modal, dropdown, tabs (Alpine.js)
-- **[Mobile](references/mobile.md)**: Bottom nav, mobile cards, touch patterns
-- **[States](references/states.md)**: Loading, empty, progress indicators
-
-Use these as a reference when helpful, or create your own solutions entirely.
+Use as inspiration. Modify freely or create new patterns.
 
 ## Context Analysis
 
@@ -142,3 +117,15 @@ Generate kebab-case names from content (2-4 words):
 ### Confirmation Flow
 Suggest a name before saving:
 > "I'll save this as `wireframes/user-profile.html`. Is this name okay?"
+
+## Example
+
+**User request:** "Create a simple landing page for a productivity app"
+
+**Claude creates:** `wireframes/productivity-landing.html` with:
+- Sticky header with logo and CTA
+- Hero section with headline and app screenshot placeholder
+- 3-column features grid
+- Testimonial card
+- CTA section
+- Simple footer
