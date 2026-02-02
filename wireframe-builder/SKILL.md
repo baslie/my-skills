@@ -14,10 +14,55 @@ Generate lo-fi wireframes as single HTML files using Tailwind CSS with a graysca
 
 ## Quick Start
 
-1. Ask user: page type, main sections, mobile view needed?
-2. Copy template from `assets/template.html`
-3. Pick components from `references/components.md`
-4. Write `.html` file with descriptive name
+1. Analyze user's prompt or document to understand requirements
+2. Determine sections, components, and layout from context
+3. Copy template from `assets/template.html`
+4. Pick components from `references/components.md`
+5. Suggest filename and ask for confirmation
+6. Create `wireframes/` folder if needed
+7. Save to `wireframes/[confirmed-name].html`
+
+## Context Analysis
+
+### Input Sources
+The skill works with any input that describes what to build:
+- **Direct prompt**: "Create a user profile page with settings"
+- **Text document**: PRD, user story, feature spec, design brief, notes
+- **Reference**: Description of existing page or competitor
+
+### Automatic Understanding
+Analyze the input to identify:
+- Page purpose and main functionality
+- Required sections and their hierarchy
+- Key UI elements (forms, tables, lists, cards)
+- User actions and flows
+- Implicit mobile requirements
+
+### Minimal Questions
+Only ask when context is genuinely ambiguous:
+- "Should I include [specific element] mentioned in the doc?"
+- "The document describes two flows. Which is primary?"
+
+**Never ask about predefined categories** (SaaS, corporate, landing, etc.)
+The wireframe structure emerges from the actual requirements.
+
+## Document Processing
+
+When user provides a document (PRD, spec, user story, notes, any text):
+
+1. **Read the document** completely
+2. **Extract requirements**:
+   - Main purpose of the page
+   - User actions and flows
+   - Data to display (lists, tables, forms)
+   - Navigation needs
+   - Mentioned UI elements
+3. **Map to components**:
+   - Forms mentioned → form components
+   - Lists/data → tables, cards, grids
+   - Actions → buttons, CTAs
+   - Media references → image placeholders
+4. **Build wireframe** matching the document's intent
 
 ## HTML Template Structure
 
@@ -181,20 +226,26 @@ See `references/components.md` for full component library:
 - Tables
 - Utility icons (SVG)
 
-## Example Wireframe Types
+## File Naming & Storage
 
-| Type | Key Sections |
-|------|--------------|
-| Landing page | Header, Hero, Features, CTA, Footer |
-| Dashboard | Sidebar, Stats cards, Table, Charts placeholder |
-| E-commerce | Header, Product grid, Filters, Cart |
-| Blog | Header, Featured post, Post grid, Sidebar |
-| Login/Signup | Centered form card |
-| Admin panel | Sidebar, Breadcrumbs, Data table, Pagination |
+### Output Directory
+All wireframes save to `wireframes/` in project root:
+```
+project/
+└── wireframes/
+    ├── user-profile.html
+    ├── checkout-flow.html
+    └── admin-users.html
+```
 
-## File Naming
+### Naming Convention
+Generate kebab-case names from content (2-4 words):
+- User profile page → `user-profile.html`
+- Product checkout → `checkout-flow.html`
+- Admin user list → `admin-users.html`
 
-Use descriptive names:
-- `wireframe-landing-page.html`
-- `wireframe-dashboard.html`
-- `wireframe-checkout-flow.html`
+### Confirmation Flow
+Always confirm before saving:
+> "I'll save this as `wireframes/user-profile.html`. Is this name okay?"
+
+Use user's preferred name if they suggest one.
