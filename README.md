@@ -1,12 +1,13 @@
 # my-skills
 
-Custom skills collection for [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code).
+Custom skills collection for [Claude Code](https://claude.com/product/claude-code).
 
 ## Skills
 
 | Skill | Description |
 |-------|-------------|
 | [building-wireframes](./building-wireframes) | Generate lo-fi wireframes as single HTML files with Tailwind CSS. Creates grayscale mockups for landing pages, dashboards, forms, e-commerce, admin panels, and more. |
+| [restarting-server](./restarting-server) | Restart Node.js dev server with cache cleanup. Auto-detects technology (Vite, Next.js, Nuxt, Remix, CRA, Gatsby, Parcel) and clears corresponding caches. |
 
 ## Installation
 
