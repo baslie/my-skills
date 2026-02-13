@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wire: {
+              bg: 'hsl(0 0% 100%)',
+              surface: 'hsl(0 0% 96%)',
+              border: 'hsl(0 0% 88%)',
+              muted: 'hsl(0 0% 62%)',
+              text: 'hsl(0 0% 26%)',
+              dark: 'hsl(0 0% 13%)',
+            }
+          },
+          borderRadius: {
+            wire: '0.375rem',
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        @apply bg-wire-bg text-wire-text;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- ========== HEADER ========== -->
+  <header class="border-b border-wire-border bg-wire-bg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-wire-dark rounded-wire"></div>
+        <span class="font-semibold text-wire-dark">Brand</span>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#" class="text-wire-text hover:text-wire-dark transition-colors">Features</a>
+        <a href="#" class="text-wire-text hover:text-wire-dark transition-colors">Pricing</a>
+        <a href="#" class="text-wire-text hover:text-wire-dark transition-colors">About</a>
+      </nav>
+
+      <!-- CTA -->
+      <div class="flex items-center gap-3">
+        <button class="px-4 py-2 text-wire-text hover:text-wire-dark transition-colors">
+          Log in
+        </button>
+        <button class="px-4 py-2 bg-wire-dark text-white rounded-wire hover:bg-wire-text transition-colors">
+          Sign up
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Text content -->
+        <div class="space-y-6">
+          <h1 class="text-4xl md:text-5xl font-bold text-wire-dark leading-tight">
+            Main headline goes here
+          </h1>
+          <p class="text-lg text-wire-muted">
+            Supporting text that explains the value proposition. Keep it concise and focused on benefits.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <button class="px-6 py-3 bg-wire-dark text-white rounded-wire hover:bg-wire-text transition-colors">
+              Primary action
+            </button>
+            <button class="px-6 py-3 border border-wire-border text-wire-text rounded-wire hover:bg-wire-surface transition-colors">
+              Secondary action
+            </button>
+          </div>
+        </div>
+
+        <!-- Image placeholder -->
+        <div class="bg-wire-surface border border-wire-border border-dashed rounded-wire aspect-video flex items-center justify-center">
+          <svg class="w-16 h-16 text-wire-muted" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES ========== -->
+  <section class="py-16 bg-wire-surface">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-wire-dark mb-4">Features section</h2>
+        <p class="text-wire-muted max-w-2xl mx-auto">Brief description of what makes this product special.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Feature card -->
+        <div class="bg-wire-bg border border-wire-border rounded-wire p-6 space-y-4">
+          <div class="w-12 h-12 bg-wire-surface border border-wire-border rounded-wire flex items-center justify-center">
+            <svg class="w-6 h-6 text-wire-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-wire-dark">Feature one</h3>
+          <p class="text-wire-muted text-sm">Description of this feature and why it matters to users.</p>
+        </div>
+
+        <!-- Feature card -->
+        <div class="bg-wire-bg border border-wire-border rounded-wire p-6 space-y-4">
+          <div class="w-12 h-12 bg-wire-surface border border-wire-border rounded-wire flex items-center justify-center">
+            <svg class="w-6 h-6 text-wire-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-wire-dark">Feature two</h3>
+          <p class="text-wire-muted text-sm">Description of this feature and why it matters to users.</p>
+        </div>
+
+        <!-- Feature card -->
+        <div class="bg-wire-bg border border-wire-border rounded-wire p-6 space-y-4">
+          <div class="w-12 h-12 bg-wire-surface border border-wire-border rounded-wire flex items-center justify-center">
+            <svg class="w-6 h-6 text-wire-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-wire-dark">Feature three</h3>
+          <p class="text-wire-muted text-sm">Description of this feature and why it matters to users.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA SECTION ========== -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-wire-dark rounded-wire p-8 md:p-12 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Call to action headline</h2>
+        <p class="text-wire-border mb-6 max-w-xl mx-auto">Supporting text that encourages users to take action.</p>
+        <button class="px-6 py-3 bg-white text-wire-dark rounded-wire hover:bg-wire-surface transition-colors font-medium">
+          Get started
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="border-t border-wire-border py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <!-- Brand -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-wire-dark rounded-wire"></div>
+            <span class="font-semibold text-wire-dark">Brand</span>
+          </div>
+          <p class="text-sm text-wire-muted">Brief company description or tagline goes here.</p>
+        </div>
+
+        <!-- Links column -->
+        <div>
+          <h4 class="font-semibold text-wire-dark mb-4">Product</h4>
+          <ul class="space-y-2 text-sm text-wire-muted">
+            <li><a href="#" class="hover:text-wire-text transition-colors">Features</a></li>
+            <li><a href="#" class="hover:text-wire-text transition-colors">Pricing</a></li>
+            <li><a href="#" class="hover:text-wire-text transition-colors">Integrations</a></li>
+          </ul>
+        </div>
+
+        <!-- Links column -->
+        <div>
+          <h4 class="font-semibold text-wire-dark mb-4">Company</h4>
+          <ul class="space-y-2 text-sm text-wire-muted">
+            <li><a href="#" class="hover:text-wire-text transition-colors">About</a></li>
+            <li><a href="#" class="hover:text-wire-text transition-colors">Blog</a></li>
+            <li><a href="#" class="hover:text-wire-text transition-colors">Careers</a></li>
+          </ul>
+        </div>
+
+        <!-- Links column -->
+        <div>
+          <h4 class="font-semibold text-wire-dark mb-4">Legal</h4>
+          <ul class="space-y-2 text-sm text-wire-muted">
+            <li><a href="#" class="hover:text-wire-text transition-colors">Privacy</a></li>
+            <li><a href="#" class="hover:text-wire-text transition-colors">Terms</a></li>
+            <li><a href="#" class="hover:text-wire-text transition-colors">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-wire-border text-center text-sm text-wire-muted">
+        &copy; <span x-data x-text="new Date().getFullYear()">2024</span> Brand. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
