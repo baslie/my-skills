@@ -11,6 +11,14 @@
 | [cleanup-nul-files](./skills/cleanup-nul-files) | Удаление файлов `nul` из проекта (артефакт Windows) |
 | [committing-changes](./skills/committing-changes) | Коммит и пуш с автогенерацией сообщения |
 | [restarting-server](./skills/restarting-server) | Перезапуск Node.js dev-сервера с очисткой кэша (Vite, Next.js, Nuxt, Remix и др.) |
+| [sorting-bookmarks](./skills/sorting-bookmarks) | Сортировка и категоризация закладок браузера из HTML-файла |
+| [ui-ux-pro-max](./skills/ui-ux-pro-max) | Комплексное руководство по дизайну UI/UX (50+ стилей, палитры, шрифты, стеки) |
+
+## Промпты
+
+| Промпт | Описание |
+|--------|----------|
+| [humanize-ai-text](./prompts/humanize-ai-text.md) | Переписывание текста для обхода ИИ-детекторов (Grammarly, GPTZero, Turnitin) |
 
 ## Конфигурация
 
@@ -32,6 +40,7 @@
 /changelog-tracker   — посмотреть обновления Claude Code
 /committing-changes  — закоммитить изменения
 /restarting-server   — перезапустить сервер
+/sorting-bookmarks   — отсортировать закладки браузера
 ```
 
 Или опишите задачу естественным языком:
